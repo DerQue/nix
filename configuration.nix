@@ -6,7 +6,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Netzwerk
-  networking.hostName = "mein-pc"; # Muss mit dem Namen in der flake.nix übereinstimmen!
+  networking.hostName = "gaming"; # Muss mit dem Namen in der flake.nix übereinstimmen!
   networking.networkmanager.enable = true;
 
   # Zeit und Sprache

@@ -15,7 +15,7 @@
         specialArgs = { inherit inputs; };
         modules = [
           disko.nixosModules.disko
-          ./disk-config.nix
+          ./disk.nix
           ./hardware-configuration.nix
           ./nvidia.nix 
           ./configuration.nix
