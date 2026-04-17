@@ -86,6 +86,7 @@
     nvim-lspconfig
     telescope-nvim
     nvim-treesitter.withAllGrammars
+    cmp
   ];
 
   # Deine Lua-Konfiguration einbinden
