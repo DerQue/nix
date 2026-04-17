@@ -90,7 +90,21 @@
 
   # Deine Lua-Konfiguration einbinden
   extraLuaConfig = ''
-  require('lspconfig').nil_ls.setup{}
+  -- Globales Highlighting für alle unterstützten Dateitypen
+vim.api.nvim_create_autocmd("FileType", {
+  callback = function(args)
+    local bufnr = args.buf
+    local ft = vim.bo[bufnr].filetype
+    
+    -- Prüfen, ob für diesen Dateityp ein Parser existiert
+    local lang = vim.treesitter.language.get_lang(ft) or ft
+    local has_parser = pcall(vim.treesitter.get_parser, bufnr, lang)
+    
+    if has_parser then
+      vim.treesitter.start(bufnr, lang)
+    end
+  end,
+})
   '';
 
   # Abhängigkeiten (wie Compiler oder Suchtools) bereitstellen
