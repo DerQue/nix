@@ -23,6 +23,7 @@
 	  pkgs.alacritty
           pkgs.starship
           pkgs.fish
+	  pkgs.ghc
         ];
 
       # Necessary for using flakes on this system.
