@@ -42,6 +42,12 @@
       # The platform the configuration will be used on.
       nixpkgs.hostPlatform = "aarch64-darwin";
 
+            users.users.quentin = {
+                name = "quentin"; 
+                home = "/Users/quentin"; # Darwin weiß nun, wo das Home-Verzeichnis ist
+                shell = pkgs.fish;
+            };
+
 
       fonts.packages = with pkgs; [
     	nerd-fonts.fira-code # Neue Syntax für Nerd Fonts
@@ -56,11 +62,11 @@
 	configuration
 	home-manager.darwinModules.home-manager
 	{
-	    users.users.quentin = {
-   		name = "quentin";
-    		home = "/Users/quentin"; # Darwin weiß nun, wo das Home-Verzeichnis ist
-		shell = pkgs.fish;
-  	    };
+#	    users.users.quentin = {
+#   		name = "quentin";
+#    		home = "/Users/quentin"; # Darwin weiß nun, wo das Home-Verzeichnis ist
+#		shell = pkgs.fish;
+#  	    };
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.quentin = ./home.nix;
