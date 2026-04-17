@@ -38,6 +38,9 @@
     
     settings = {
       add_newline = true;
+      env = {
+        TERM = "xterm-256color";
+      };
       # Hier kannst du deine komplette starship.toml Logik abbilden
       terminal.shell = {
         program = "${pkgs.fish}/bin/fish";
