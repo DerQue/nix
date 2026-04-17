@@ -56,6 +56,10 @@
 	configuration
 	home-manager.darwinModules.home-manager
 	{
+	    users.users.quentin = {
+   		name = "quentin";
+    		home = "/Users/quentin"; # Darwin weiß nun, wo das Home-Verzeichnis ist
+  	    };
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.quentin = ./home.nix;
