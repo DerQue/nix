@@ -61,7 +61,7 @@
 
       window = {
         padding = { x = 10; y = 10; };
-        decorations = "buttonless";
+        decorations = "transparent";
         dynamic_padding = true;
       };
 
