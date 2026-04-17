@@ -86,7 +86,17 @@
     nvim-lspconfig
     telescope-nvim
     nvim-treesitter.withAllGrammars
-    cmp
+    
+    nvim-cmp
+    
+    # Quellen für die Vorschläge
+  cmp-nvim-lsp     # Vorschläge vom Language Server
+  cmp-buffer       # Wörter aus der aktuellen Datei
+  cmp-path         # Dateipfade
+  
+  # Snippets (wichtig, damit cmp funktioniert)
+  luasnip
+  cmp_luasnip
   ];
 
   # Deine Lua-Konfiguration einbinden
