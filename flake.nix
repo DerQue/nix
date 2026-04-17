@@ -9,9 +9,12 @@
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    stylix.url = "github:nix-community/stylix";
+    stylix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, stylix }:
   let
     configuration = { pkgs, ... }: {
       # List packages installed in system profile.
@@ -57,12 +60,16 @@
     	# Falls du eine ältere Nixpkgs-Version nutzt, stattdessen:
     	# (nerdfonts.override { fonts = [ "FiraCode" ]; })
       ];
+
+      stylix.enable = true;
+      stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest.yaml";
     };
   in
   {
     darwinConfigurations."macbookpro" = nix-darwin.lib.darwinSystem {
       modules = [ 
 	configuration
+	stylix.darwinModules.stylix
 	home-manager.darwinModules.home-manager
 	{
 #	    users.users.quentin = {
