@@ -30,7 +30,7 @@
 
       # Enable alternative shell support in nix-darwin.
       programs.fish.enable = true;
-      #programs.zsh.enable = true;
+      programs.zsh.enable = false;
 
       # Set Git commit hash for darwin-version.
       system.configurationRevision = self.rev or self.dirtyRev or null;
@@ -59,6 +59,7 @@
 	    users.users.quentin = {
    		name = "quentin";
     		home = "/Users/quentin"; # Darwin weiß nun, wo das Home-Verzeichnis ist
+		shell = pkgs.fish;
   	    };
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
