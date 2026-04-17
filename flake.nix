@@ -14,8 +14,10 @@
       # $ nix-env -qaP | grep wget
       environment.systemPackages =
         [ 
-	  pkgs.vim
+	  pkgs.neovim
 	  pkgs.git
+	  pkgs.alacritty
+          pkgs.starship
         ];
 
       # Necessary for using flakes on this system.
