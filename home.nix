@@ -65,10 +65,10 @@
         dynamic_padding = true;
       };
 
-      font = {
-        normal = { family = "FiraCode Nerd Font"; style = "Regular"; };
-        size = 14.0;
-      };
+      #font = {
+      #  normal = { family = "FiraCode Nerd Font"; style = "Regular"; };
+      #  size = 14.0;
+      #};
       
       # Optional: macOS-Tastenkürzel explizit mappen (cmd+c, cmd+v, etc.)
       keyboard.bindings = [
