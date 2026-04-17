@@ -44,6 +44,7 @@
 
             users.users.quentin = {
                 name = "quentin"; 
+		uid = "501";
                 home = "/Users/quentin"; # Darwin weiß nun, wo das Home-Verzeichnis ist
                 shell = pkgs.fish;
             };
