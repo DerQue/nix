@@ -127,7 +127,7 @@ vim.lsp.enable('nixd')
 
 -- Server für Haskell aktivieren
 vim.lsp.config('hls', {
-  capabilities = capabilities
+  capabilities = capabilities,
   filetypes = { 'haskell', 'lhaskell', 'cabal' },
 })
 vim.lsp.enable('hls')
