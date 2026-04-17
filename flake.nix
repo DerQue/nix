@@ -47,6 +47,7 @@
                 home = "/Users/quentin"; # Darwin weiß nun, wo das Home-Verzeichnis ist
                 shell = pkgs.fish;
             };
+		users.knownUsers = ["quentin"];
 
 
       fonts.packages = with pkgs; [
