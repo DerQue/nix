@@ -117,15 +117,20 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
-local lspconfig = require('lspconfig')
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 -- Server für Nix aktivieren
+vim.lsp.config('nixd', {
+  capabilities = capabilities
+})
 vim.lsp.enable('nixd')
 
 -- Server für Haskell aktivieren
 vim.lsp.config('hls', {
+  capabilities = capabilities
   filetypes = { 'haskell', 'lhaskell', 'cabal' },
 })
+vim.lsp.enable('hls')
 
 -- Tipp: Standard-Keybindings für LSP (optional aber empfohlen)
 vim.api.nvim_create_autocmd('LspAttach', {
