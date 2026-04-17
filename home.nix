@@ -38,14 +38,14 @@
     
     settings = {
       add_newline = true;
-      env = {
-        TERM = "xterm-256color";
-      };
+      #env = {
+      #  TERM = "xterm-256color";
+      #};
       # Hier kannst du deine komplette starship.toml Logik abbilden
-      terminal.shell = {
-        program = "${pkgs.fish}/bin/fish";
-        args = [ "--login" ];
-      };
+      #terminal.shell = {
+      #  program = "${pkgs.fish}/bin/fish";
+      #  args = [ "--login" ];
+      #};
     };
   };
 
@@ -53,6 +53,12 @@
     enable = true;
     
     settings = {
+      # Hier kannst du deine komplette starship.toml Logik abbilden
+      terminal.shell = {
+        program = "${pkgs.fish}/bin/fish";
+        args = [ "--login" ];
+      };
+
       window = {
         padding = { x = 10; y = 10; };
         decorations = "buttonless";
