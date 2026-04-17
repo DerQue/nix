@@ -85,7 +85,7 @@
   plugins = with pkgs.vimPlugins; [
     nvim-lspconfig
     telescope-nvim
-    (nvim-treesitter.withPlugins (p: [ p.lua p.python p.rust p.nix ]))
+    nvim-treesitter.withAllGrammars
   ];
 
   # Deine Lua-Konfiguration einbinden
@@ -95,7 +95,7 @@
 
   # Abhängigkeiten (wie Compiler oder Suchtools) bereitstellen
   extraPackages = with pkgs; [
-    ripgrep
+   ripgrep
     fd
     lua-language-server
   ];
