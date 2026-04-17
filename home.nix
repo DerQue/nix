@@ -39,6 +39,10 @@
     settings = {
       add_newline = true;
       # Hier kannst du deine komplette starship.toml Logik abbilden
+      terminal.shell = {
+        program = "${pkgs.fish}/bin/fish";
+        args = [ "--login" ];
+      };
     };
   };
 
