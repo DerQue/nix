@@ -112,6 +112,8 @@ vim.api.nvim_create_autocmd("FileType", {
    ripgrep
     fd
     lua-language-server
+    nixd
+    haskell-language-server
   ];
 };
 }
