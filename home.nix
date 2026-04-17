@@ -91,9 +91,6 @@
   # Deine Lua-Konfiguration einbinden
   extraLuaConfig = ''
   require('lspconfig').nil_ls.setup{}
-  #  -- Hier kommt dein Standard-Lua Code rein
-  #  vim.opt.relativenumber = true
-  #  require('telescope').setup{}
   '';
 
   # Abhängigkeiten (wie Compiler oder Suchtools) bereitstellen
