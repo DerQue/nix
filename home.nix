@@ -77,4 +77,29 @@
       ];
     };
   };
+  programs.neovim = {
+  	enable = true;
+  	defaultEditor = true;
+  
+  # Plugins über Nix installieren
+  plugins = with pkgs.vimPlugins; [
+    nvim-lspconfig
+    telescope-nvim
+    (nvim-treesitter.withPlugins (p: [ p.lua p.python p.rust p.nix ]))
+  ];
+
+  # Deine Lua-Konfiguration einbinden
+  #extraLuaConfig = ''
+  #  -- Hier kommt dein Standard-Lua Code rein
+  #  vim.opt.relativenumber = true
+  #  require('telescope').setup{}
+  #'';
+
+  # Abhängigkeiten (wie Compiler oder Suchtools) bereitstellen
+  extraPackages = with pkgs; [
+    ripgrep
+    fd
+    lua-language-server
+  ];
+};
 }
