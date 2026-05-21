@@ -108,16 +108,17 @@
             "vagrant"
             "zig"
           ]
-          (_lang: {
-            format = "[](#${config.lib.stylix.colors.base02})[ $symbol($version )](bg:#${config.lib.stylix.colors.base02} fg:$style)[](#${config.lib.stylix.colors.base02}) ";
+          (lang: {
+            format = "[](#${config.lib.stylix.colors.base02})[ $symbol($version )](bg:#${config.lib.stylix.colors.base02} fg:$style)[](#${config.lib.stylix.colors.base02}) ";
           })
         )
         // {
+
           add_newline = true;
 
           format = lib.concatStrings [
             " $os $username "
-            "[](#${config.lib.stylix.colors.base02})[$directory$git_branch$git_status](bg:#${config.lib.stylix.colors.base02})[](#${config.lib.stylix.colors.base02}) "
+            "[](#${config.lib.stylix.colors.base02})[$directory$git_branch$git_status](bg:#${config.lib.stylix.colors.base02})[](#${config.lib.stylix.colors.base02}) "
             "$c$cmake$cobol$daml$dart$deno$dotnet$elixir$elm$erlang$fennel$fortran$gleam$golang$guix_shell$haskell$haxe$helm$java$julia$kotlin$gradle$lua$nim$nodejs$ocaml$opa$perl$php$pulumi$purescript$python$quarto$raku$rlang$red$ruby$rust$scala$solidity$swift$terraform$typst$vlang$vagrant$zig"
             "\n "
           ];
@@ -131,10 +132,11 @@
             format = "[$path]($style)[$read_only]($read_only_style)";
             style = "bg:#${config.lib.stylix.colors.base02} fg:#${config.lib.stylix.colors.base07}";
             read_only_style = "bg:#${config.lib.stylix.colors.base02} fg:#${config.lib.stylix.colors.base08}";
+
             truncate_to_repo = false;
             before_repo_root_style = "bg:#${config.lib.stylix.colors.base02} fg:#${config.lib.stylix.colors.base07}";
             repo_root_style = "#${config.lib.stylix.colors.base07}";
-            repo_root_format = "[$before_root_path$repo_root]($before_repo_root_style)[$read_only]($read_only_style)[](#${config.lib.stylix.colors.base02})[ ](bg:#${config.lib.stylix.colors.base00})[](#${config.lib.stylix.colors.base02})[$path/]($style) ";
+            repo_root_format = "[$before_root_path$repo_root]($before_repo_root_style)[$read_only]($read_only_style)[](#${config.lib.stylix.colors.base02})[ ](bg:#${config.lib.stylix.colors.base00})[](#${config.lib.stylix.colors.base02})[$path/]($style) ";
           };
 
           git_branch = {
@@ -150,7 +152,7 @@
           username = {
             style_root = "#${config.lib.stylix.colors.base08}";
             style_user = "#${config.lib.stylix.colors.base0B}";
-            format = "[]($style)[$user](bg:$style fg:#${config.lib.stylix.colors.base00})[]($style)";
+            format = "[]($style)[$user](bg:$style fg:#${config.lib.stylix.colors.base00})[]($style)";
             show_always = true;
           };
         };
