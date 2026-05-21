@@ -1,30 +1,23 @@
-{ pkgs, config, ... }:
+{ pkgs, user, ... }:
 {
   environment.systemPackages = [
     pkgs.tinymist
     pkgs.typst
-    pkgs.ghc
   ];
 
-  home-manager.users.${config.userConfig.name} = {
+  home-manager.users.${user} = {
     programs.nixvim = {
       plugins = {
-        lsp.servers = {
-          tinymist = {
-            enable = true;
-            extraOptions.offset_encoding = "utf-8";
-            settings.exportPdf = "never";
-          };
-
-          hls = {
-            enable = true;
-          };
+        lsp.servers.tinymist = {
+          enable = true;
+          extraOptions.offset_encoding = "utf-8";
+          settings.exportPdf = "never";
         };
 
         typst-preview = {
           enable = true;
           settings = {
-            debug = true;
+            debug = false;
             extra_args = [
               "--font-path"
               "./template/base/fonts"
@@ -38,7 +31,7 @@
           mode = "n";
           key = "<leader>tp";
           action = "<cmd>TypstPreview<CR>";
-          options.desc = "Typst Live Preview starten";
+          options.desc = "Typst Live Preview";
         }
       ];
     };

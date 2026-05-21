@@ -1,15 +1,6 @@
-{
-  pkgs,
-  config,
-  ...
-}:
+{ pkgs, ... }:
 
 {
-
-  fonts.packages = with pkgs; [
-    nerd-fonts.fira-code
-  ];
-
   stylix = {
     enable = true;
 
@@ -47,7 +38,6 @@
         package = pkgs.dejavu_fonts;
         name = "DejaVu Serif";
       };
-
       emoji = {
         package = pkgs.noto-fonts-color-emoji;
         name = "Noto Color Emoji";

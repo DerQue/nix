@@ -1,9 +1,9 @@
-{ config, pkgs, ... }:
+{ pkgs, user, ... }:
+
 {
   environment.systemPackages = [ pkgs.ripgrep ];
 
-  home-manager.users.${config.userConfig.name} = {
-
+  home-manager.users.${user} = {
     programs.nixvim = {
       enable = true;
 
@@ -28,11 +28,8 @@
 
       diagnostics = {
         virtual_text = true;
-
         signs = true;
-
         underline = true;
-
         severity_sort = true;
       };
 
@@ -46,13 +43,11 @@
 
         lsp = {
           enable = true;
-
           inlayHints = true;
 
           servers = {
             lua_ls.enable = true;
             bashls.enable = true;
-            nixd.enable = true;
           };
         };
 
@@ -64,7 +59,6 @@
               timeout_ms = 500;
             };
             formatters_by_ft = {
-              nix = [ "nixfmt" ];
               "_" = [ "trim_whitespace" ];
             };
           };
@@ -72,7 +66,6 @@
 
         telescope = {
           enable = true;
-
           keymaps = {
             "<leader>ff" = "find_files";
             "<leader>fg" = "live_grep";
@@ -97,7 +90,6 @@
               { name = "path"; }
               { name = "buffer"; }
             ];
-
             mapping = {
               "<C-Space>" = "cmp.mapping.complete()";
               "<CR>" = "cmp.mapping.confirm({ select = true })";
