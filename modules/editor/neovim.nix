@@ -26,6 +26,16 @@
 
       globals.mapleader = " ";
 
+      diagnostics = {
+        virtual_text = true;
+
+        signs = true;
+
+        underline = true;
+
+        severity_sort = true;
+      };
+
       plugins = {
         treesitter = {
           enable = true;

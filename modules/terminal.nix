@@ -7,7 +7,6 @@
 
 {
   environment.systemPackages = [
-    pkgs.alacritty
     pkgs.starship
     pkgs.fish
   ];
@@ -175,6 +174,10 @@
             show_always = true;
           };
         };
+    };
+
+    programs.tmux = {
+      enable = true;
     };
   };
 

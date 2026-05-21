@@ -64,9 +64,11 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.${config.userConfig.name} = {
-              
-    imports = [ nixvim.homeManagerModules.nixvim ];
-	      home.username = config.userConfig.name;
+
+              imports = [
+                nixvim.homeManagerModules.nixvim
+              ];
+              home.username = config.userConfig.name;
               home.homeDirectory = config.userConfig.home;
               home.stateVersion = "25.11";
               programs.home-manager.enable = true;
@@ -78,6 +80,7 @@
               home = config.userConfig.home;
             };
             users.knownUsers = [ config.userConfig.name ];
+            system.primaryUser = config.userConfig.name;
           };
 
         };
@@ -87,7 +90,7 @@
         modules = [
           home-manager.darwinModules.home-manager
           stylix.darwinModules.stylix
-	  
+
           configuration
           {
             userConfig.name = "quentin";
@@ -99,7 +102,22 @@
           ./modules/terminal.nix
           ./modules/editor/neovim.nix
           ./modules/social.nix
+          ./modules/browser.nix
+          ./modules/mail.nix
+
+          ./modules/mac/dock.nix
+          ./modules/mac/brew.nix
+          #./modules/mac/aerospace.nix
+
+          ./modules/uni.nix
+          ./modules/uni/dtp.nix
+          ./modules/uni/bs.nix
+          ./modules/uni/aup.nix
+
+          ./modules/wireguard.nix
+          ./modules/dev.nix
         ];
+
       };
     };
 }
