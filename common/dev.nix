@@ -12,5 +12,10 @@
       userName = "${name} ${surname}";
       userEmail = "${email}";
     };
+
+    programs.direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
   };
 }

@@ -26,11 +26,13 @@
 
       globals.mapleader = " ";
 
-      diagnostics = {
-        virtual_text = true;
-        signs = true;
-        underline = true;
-        severity_sort = true;
+      diagnostic = {
+        settings = {
+          virtual_text = true;
+          signs = true;
+          underline = true;
+          severity_sort = true;
+        };
       };
 
       plugins = {

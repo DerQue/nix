@@ -55,6 +55,7 @@
           system.stateVersion = 6;
           nixpkgs.hostPlatform = "aarch64-darwin";
           nixpkgs.config.allowUnfree = true;
+          nixpkgs.overlays = [ fishOverlay ];
 
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
@@ -74,6 +75,21 @@
           users.knownUsers = [ user ];
           system.primaryUser = user;
         };
+      # Stub out create_manpage_completions.py (removed in fish 4.8.0,
+      # but other derivations still try to call it)
+      fishOverlay = final: prev: {
+        fish = prev.fish.overrideAttrs (old: {
+          postInstall =
+            (old.postInstall or "")
+            + ''
+              mkdir -p $out/share/fish/tools
+              cat > $out/share/fish/tools/create_manpage_completions.py << 'STUB'
+              #!/usr/bin/env python3
+              # stub — fish 4.8+ removed this script
+              STUB
+            '';
+        });
+      };
     in
     {
       darwinConfigurations."macbookpro" = nix-darwin.lib.darwinSystem {
@@ -96,6 +112,7 @@
           ./common/apps/mail.nix
           ./common/apps/discord.nix
           ./common/apps/vscode.nix
+          ./common/apps/intellij.nix
           ./common/lang/nix.nix
           ./common/lang/typst.nix
           ./common/lang/haskell.nix
@@ -120,6 +137,7 @@
           stylix.nixosModules.stylix
           agenix.nixosModules.default
           {
+            nixpkgs.overlays = [ fishOverlay ];
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.sharedModules = [ nixvim.homeManagerModules.nixvim ];
@@ -134,7 +152,9 @@
           ./common/apps/browser.nix
           ./common/apps/mail.nix
           ./common/apps/discord.nix
+          ./common/apps/anki.nix
           ./common/apps/vscode.nix
+          ./common/apps/intellij.nix
           ./common/lang/nix.nix
           ./common/lang/typst.nix
           ./common/lang/haskell.nix
@@ -149,6 +169,7 @@
           ./nixos/desktop/sddm.nix
           ./nixos/desktop/hyprland.nix
           ./nixos/desktop/cursor.nix
+          ./nixos/docker.nix
           ./nixos/games/minecraft.nix
 
           ./hosts/gaming/disk.nix
