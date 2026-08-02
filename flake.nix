@@ -168,9 +168,11 @@
           ./nixos/hardware/nvidia.nix
           ./nixos/desktop/sddm.nix
           ./nixos/desktop/hyprland.nix
+          ./nixos/desktop/waybar.nix
           ./nixos/desktop/cursor.nix
           ./nixos/docker.nix
           ./nixos/games/minecraft.nix
+          ./nixos/games/steam.nix
 
           ./hosts/gaming/disk.nix
           ./hosts/gaming/hardware-configuration.nix
